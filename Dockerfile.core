@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -q -y \
     libtinyxml2-dev \
     lsb-release \
     python3-pip \
+    sudo \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -74,9 +75,5 @@ RUN apt-get update && rosdep install -y \
 # build source
 WORKDIR $PROJECT_WS
 RUN colcon build --symlink-install
-
-RUN apt-get update && apt-get install -y \
-    sudo \
-    && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]

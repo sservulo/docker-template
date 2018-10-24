@@ -72,8 +72,11 @@ RUN apt-get update && rosdep install -y \
     --skip-keys "console_bridge fastcdr fastrtps libopensplice67 rti-connext-dds-5.3.1 urdfdom_headers" \
     && rm -rf /var/lib/apt/lists/*
 
-# build source
-WORKDIR $PROJECT_WS
-RUN colcon build --symlink-install
+RUN pip3 install -U \
+    transitions
+
+RUN apt-get update && apt-get install -y \
+    libopensplice67 \
+    && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]

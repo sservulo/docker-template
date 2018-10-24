@@ -2,7 +2,7 @@
 
 source $(dirname $BASH_SOURCE)/helpers/env_vars.bash
 
-INIT_BASH=/project/external/bin/helpers/initialize.bash
+INIT_BASH=/project/bin/helpers/initialize.bash
 
 $DOCKER_RUNNER exec \
     -u $USER \

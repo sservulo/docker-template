@@ -2,7 +2,7 @@
 
 source $(dirname $BASH_SOURCE)/helpers/env_vars.bash
 
-SET_USER=/project/ws/bin/helpers/set_user.bash
+SET_USER=/project/bin/helpers/set_user.bash
 
 GROUP_ID=$(id -g $USER)
 USER_ID=$(id -u $USER)
@@ -13,7 +13,7 @@ cmd="$DOCKER_RUNNER run \
        -d \
        -h $INNER_HOSTNAME \
        -v ~/.Xauthority:/root/.Xauthority \
-       -v $PROJECT_PATH:/project/ws \
+       -v $PROJECT_PATH:/project \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        -e DISPLAY=$DISPLAY \
        -e HOST_USER=$USER \
